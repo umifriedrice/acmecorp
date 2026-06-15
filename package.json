@@ -1,0 +1,13 @@
+{
+  "name": "acmecorp",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev --workspace=frontend\" \"pnpm run dev --workspace=backend\"",
+    "dev:frontend": "ppnpm run dev --workspace=frontend",
+    "dev:backend": "pnpm run dev --workspace=backend",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
