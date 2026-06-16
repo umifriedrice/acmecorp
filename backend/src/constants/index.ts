@@ -1,4 +1,10 @@
-export const COUNTRIES = ["US", "AUS", "ID"];
+export const COUNTRIES_ENUM = ["US", "AUS", "ID"];
+
+export const COUNTRIES = [
+  { label: "United States", value: "US" },
+  { label: "Australia", value: "AUS" },
+  { label: "Indonesia", value: "ID" },
+];
 
 export const AUS_STATES: string[] = [
   "NSW",

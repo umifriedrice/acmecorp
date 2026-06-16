@@ -1,5 +1,5 @@
 export type USAddressType = {
-  country: "United States";
+  country: "US";
   addressLine1: string;
   addressLine2: string;
   city: string;
@@ -8,7 +8,7 @@ export type USAddressType = {
 };
 
 export type AUSAddressType = {
-  country: "Australia";
+  country: "AUS";
   addressLine1: string;
   addressLine2: string;
   suburb: string;
@@ -17,7 +17,7 @@ export type AUSAddressType = {
 };
 
 export type IDAddressType = {
-  country: "Indonesia";
+  country: "ID";
   province: string;
   city: string;
   district: string;

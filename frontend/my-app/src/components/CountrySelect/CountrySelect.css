@@ -1,0 +1,11 @@
+.country-select-wrapper {
+  margin-bottom: 18px;
+}
+
+.country-select-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #3a3a52;
+}

@@ -7,7 +7,7 @@ router.get("/", (_req: Request, res: Response) => {
   const data = {
     countries: COUNTRIES,
   };
-  res.json({ status: 200, message: "Retrieved address", data });
+  res.json({ status: 200, message: "Succesffully retrieved all countries", data });
 });
 
 export default router;

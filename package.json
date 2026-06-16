@@ -2,9 +2,9 @@
   "name": "acmecorp",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm run dev --workspace=frontend\" \"pnpm run dev --workspace=backend\"",
-    "dev:frontend": "ppnpm run dev --workspace=frontend",
-    "dev:backend": "pnpm run dev --workspace=backend",
+    "dev": "concurrently \"pnpm --filter my-app run dev\" \"pnpm --filter acmecorp-backend run dev\"",
+    "dev:frontend": "pnpm --filter my-app run dev",
+    "dev:backend": "pnpm --filter acmecorp-backend run dev",
     "install:all": "pnpm install"
   },
   "devDependencies": {

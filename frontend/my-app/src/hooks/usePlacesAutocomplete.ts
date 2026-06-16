@@ -34,6 +34,10 @@ function parseAddressComponents(components, countryCode) {
           get("sublocality_level_1") ||
           get("sublocality"),
         postCode: get("postal_code"),
+        streetAddress:
+          [get("street_number"), get("route")].filter(Boolean).join(" ") ||
+          get("premise") ||
+          get("sublocality_level_2"),
       };
     default:
       return { addressLine1: line1, zipCode: get("postal_code") };

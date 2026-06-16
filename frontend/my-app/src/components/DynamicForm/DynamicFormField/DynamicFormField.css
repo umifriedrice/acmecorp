@@ -1,0 +1,44 @@
+.field {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #3a3a52;
+  line-height: 1.4;
+  padding-top: 2px;
+}
+
+.ctrl-error-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c0392b;
+  font-size: 0.82rem;
+  border-color: #f0c0bb;
+  background: #fdf3f2;
+}
+
+.retry {
+  border: none;
+  background: #c0392b;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .field {
+    grid-template-columns: 1fr;
+    row-gap: 5px;
+    margin-bottom: 14px;
+  }
+}
