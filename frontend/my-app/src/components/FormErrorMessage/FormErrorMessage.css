@@ -1,0 +1,26 @@
+
+.form-errors {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+}
+
+.form-errors-title {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b91c1c;
+}
+
+.form-errors-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.form-errors-list li {
+  font-size: 0.82rem;
+  color: #dc2626;
+  line-height: 1.6;
+}

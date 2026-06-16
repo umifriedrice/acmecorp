@@ -85,7 +85,7 @@
   background: #f0f0fc;
   border-color: #5b5bd6;
 }
-
+/* 
 .form-errors {
   margin-top: 20px;
   padding: 14px 16px;
@@ -110,7 +110,7 @@
   font-size: 0.82rem;
   color: #dc2626;
   line-height: 1.6;
-}
+} */
 
 @media (max-width: 640px) {
   .form-card {

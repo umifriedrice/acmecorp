@@ -1,12 +1,14 @@
-import { useState, type SubmitEvent } from "react";
+import { useCallback, useState, type SubmitEvent } from "react";
 import CountrySelect from "../CountrySelect";
 import DynamicAddressForm from "../DynamicForm";
-import PlacesAutocomplete from "../PlacesAutocomplete";
+import PlacesAutocomplete, { type AddressData } from "../PlacesAutocomplete";
 import { COUNTRIES } from "../../constants";
 import { validateFormAddress } from "../../utils/address";
-import "./AddressForm.css";
 import type { CountryType } from "../../types/address";
 import addressRepo from "../../repository/address";
+import FormErrorMessage from "../FormErrorMessage";
+import { isObjEmpty } from "../../utils/object";
+import "./AddressForm.css";
 
 const AddressForm = () => {
   const [selectedCountry, setSelectedCountry] = useState<CountryType>(
@@ -41,23 +43,24 @@ const AddressForm = () => {
     }
   };
 
-  const handleCountrySelected = (value: CountryType) => {
+  const handleCountrySelected = useCallback((value: CountryType) => {
     setSelectedCountry(value);
     setOpenForm(false);
     setErrors([]);
-  };
+  }, []);
 
-  const handleAddressSelect = (addressData) => {
+  const handleAddressSelect = useCallback((addressData: AddressData) => {
     setAutocompletePlace(addressData);
-  };
+  }, []);
 
   const handlePlaceAutocompleteSave = async () => {
-    if (!autocompletePlace) {
+    if (isObjEmpty(autocompletePlace)) {
       setErrors(["Please fill in the address"]);
       return;
     }
 
     console.log("DEBUG AUTOCOMPLETE", autocompletePlace);
+
     try {
       await addressRepo.saveAddress(selectedCountry, autocompletePlace);
 
@@ -76,10 +79,10 @@ const AddressForm = () => {
     setErrors([]);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpenForm(false);
     setErrors([]);
-  };
+  }, []);
 
   return (
     <div className="form-page">
@@ -122,18 +125,8 @@ const AddressForm = () => {
             onClose={handleClose}
           />
         )}
-        {errors && errors.length > 0 ? (
-          <div className="form-errors">
-            <p className="form-errors-title">
-              Form is invalid, please check these suggestions below
-            </p>
-            <ul className="form-errors-list">
-              {errors.map((err: string) => (
-                <li key={err}>{err}</li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+        {errors && errors.length > 0 ? 
+          <FormErrorMessage errors={errors} /> : null}
       </div>
     </div>
   );

@@ -91,10 +91,12 @@ const PlacesAutocomplete = (props: Props) => {
   );
 }
 
+export type AddressData = { [key: string]: string };
+
 interface Props {
   countryCode: string;
   onAddressSelect: (
-    addressData: { [key: string]: string },
+    addressData:  AddressData,
     formateddAddress: string
   ) => void;
 }

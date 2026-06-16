@@ -29,7 +29,7 @@ pnpm run dev:backend
 
 # Thoughts on the application and its design
 
-Each country is isolated into its own strategy, its own configuration, validation logic, and form structure, both in the backend and frontend. This concept is inspired by **Strategy design pattern**, which means each country has its own function and configuration to support its unique fields, rules and characteristics. Adding a new country is a will be an isolated change and can be done without touching the existing ones.
+The main idea that I have for this project is each country is isolated into its own strategy, its own configuration, validation logic, and form structure, both in the backend and frontend. This concept is inspired by **Strategy design pattern**, which means each country has its own function and configuration to support its unique fields, rules and characteristics. Adding a new country is a will be an isolated change and can be done without touching the existing ones.
 
 On the database side, addresses are intentionally not isolated by country. All addresses share a single entity that holds every country's possible fields, avoiding schema fragmentation and keeping queries simple.
 
