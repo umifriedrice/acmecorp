@@ -98,7 +98,7 @@ export const ID_FORM_FIELDS = [
     key: "postCode",
     type: "text",
     required: true,
-    validation: "5-digit",
+    validation: "5_digit_code",
   },
   {
     label: "Street Address",

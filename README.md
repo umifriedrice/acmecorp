@@ -1,6 +1,6 @@
 # How to run the project
 
-First, install all the required dependencies by running this command below
+First, please use PNPM version 9.x to install all the required dependencies by running this command below
 ```
 pnpm run install:all
 ```
