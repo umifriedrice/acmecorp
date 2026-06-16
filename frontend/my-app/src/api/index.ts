@@ -1,4 +1,4 @@
-import countriesAPI from "./countries";
+import countriesAPI from "@/api/countries";
 
 export {
     countriesAPI

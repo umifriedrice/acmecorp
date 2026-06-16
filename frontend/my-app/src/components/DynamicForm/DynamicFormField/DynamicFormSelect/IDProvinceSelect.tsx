@@ -1,5 +1,5 @@
 import DynamicFormSelect from "./DynamicFormSelect";
-import { ID_PROVINCES } from "../../../../constants";
+import { ID_PROVINCES } from "@/constants";
 
 const IDProvinceSelect = ({
   formKey,

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { APIProvider } from "@vis.gl/react-google-maps";
-import usePlacesAutocomplete from "../../hooks/usePlacesAutocomplete";
+import usePlacesAutocomplete from "@/hooks/usePlacesAutocomplete";
 import "./PlacesAutocomplete.css";
 
 // This is a demo API key so it should be safe to put the key in this file for now.

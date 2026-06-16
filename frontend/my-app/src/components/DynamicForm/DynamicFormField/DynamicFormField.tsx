@@ -1,9 +1,9 @@
+import FormTextInput from "./FormTextInput";
 import {
   AUSStateSelect,
   USStateSelect,
   IDProvinceSelect,
 } from "./DynamicFormSelect";
-import FormTextInput from "./FormTextInput";
 import "./DynamicFormField.css";
 
 const FORM_TYPE = {

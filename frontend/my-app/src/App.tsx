@@ -1,5 +1,5 @@
-import "./App.css";
-import AddressForm from "./components/AddressForm";
+import "@/App.css";
+import AddressForm from "@/components/AddressForm";
 
 function App() {
   return <AddressForm />;

@@ -1,5 +1,5 @@
 import DynamicFormSelect from "./DynamicFormSelect";
-import { AUS_STATES } from "../../../../constants";
+import { AUS_STATES } from "@/constants";
 
 const AUSStateSelect = ({ formKey, formRequired, defaultValue }: Props) => {
   return (

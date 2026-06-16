@@ -1,5 +1,5 @@
 import PlacesAutocomplete from "./PlacesAutocomplete";
 
-export * from "./PlacesAutocomplete";
+export type * from "./PlacesAutocomplete";
 
 export default PlacesAutocomplete;

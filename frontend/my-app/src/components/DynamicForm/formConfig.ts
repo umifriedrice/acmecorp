@@ -1,4 +1,4 @@
-import { ID_PROVINCES, US_STATES, AUS_STATES } from "../../constants";
+import { ID_PROVINCES, US_STATES, AUS_STATES } from "@/constants";
 
 export const US_FORM_FIELDS = [
   {

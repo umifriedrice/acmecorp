@@ -1,5 +1,5 @@
-import type { AddressServiceInsertType, CountryType } from "../types/address";
-import addressAPI from "../api/address";
+import type { AddressServiceInsertType, CountryType } from "@/types/address";
+import addressAPI from "@/api/address";
 
 const generateAddressParam = (
   country: CountryType,

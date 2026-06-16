@@ -1,5 +1,5 @@
+import "@/components/styles.css";
 import "./DynamicFormSelect.css";
-import "../../../styles.css";
 
 const DynamicFormSelect = ({
   formKey,

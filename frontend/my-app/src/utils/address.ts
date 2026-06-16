@@ -1,5 +1,5 @@
-import { COUNTRY_FORM_FIELDS } from "../components/DynamicForm/formConfig";
-import type { CountryType } from "../types/address";
+import { COUNTRY_FORM_FIELDS } from "@/components/DynamicForm/formConfig";
+import type { CountryType } from "@/types/address";
 
 const validateFourDigitCode = (value: string): boolean => /^\d{4}$/.test(value);
 

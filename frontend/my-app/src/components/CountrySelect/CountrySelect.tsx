@@ -1,7 +1,7 @@
-import { COUNTRIES } from "../../constants";
+import type { CountryType } from "@/types/address";
+import { COUNTRIES } from "@/constants";
 import "./CountrySelect.css";
-import "../styles.css";
-import type { CountryType } from "../../types/address";
+import "@/components/styles.css";
 
 function CountrySelect({
   selectedCountry,

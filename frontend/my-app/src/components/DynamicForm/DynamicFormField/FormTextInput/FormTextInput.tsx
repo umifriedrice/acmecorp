@@ -1,5 +1,5 @@
 // import "./FormTextInput.css";
-import "../../../styles.css";
+import "@/components/styles.css";
 
 const TextInput = ({ formKey, defaultValue, formRequired }: Props) => {
   return (

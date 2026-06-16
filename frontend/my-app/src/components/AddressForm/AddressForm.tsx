@@ -1,13 +1,13 @@
 import { useCallback, useState, type SubmitEvent } from "react";
-import CountrySelect from "../CountrySelect";
-import DynamicAddressForm from "../DynamicForm";
-import PlacesAutocomplete, { type AddressData } from "../PlacesAutocomplete";
-import { COUNTRIES } from "../../constants";
-import { validateFormAddress } from "../../utils/address";
-import type { CountryType } from "../../types/address";
-import addressRepo from "../../repository/address";
-import FormErrorMessage from "../FormErrorMessage";
-import { isObjEmpty } from "../../utils/object";
+import CountrySelect from "@/components/CountrySelect";
+import DynamicAddressForm from "@/components/DynamicForm";
+import PlacesAutocomplete, { type AddressData } from "@/components/PlacesAutocomplete";
+import { COUNTRIES } from "@/constants";
+import { validateFormAddress } from "@/utils/address";
+import type { CountryType } from "@/types/address";
+import addressRepo from "@/repository/address";
+import FormErrorMessage from "@/components/FormErrorMessage";
+import { isObjEmpty } from "@/utils/object";
 import "./AddressForm.css";
 
 const AddressForm = () => {

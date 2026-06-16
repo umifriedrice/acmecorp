@@ -108,7 +108,6 @@ export default function usePlacesAutocomplete({ countryCode, onSelect }) {
         await place.fetchFields({
           fields: ["addressComponents", "formattedAddress"],
         });
-        // New session after a completed selection (billing)
         sessionTokenRef.current = new placesLib.AutocompleteSessionToken();
         onSelect?.(
           parseAddressComponents(place.addressComponents || [], countryCode),
