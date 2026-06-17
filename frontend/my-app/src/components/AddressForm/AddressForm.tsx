@@ -1,24 +1,32 @@
 import { useCallback, useState, type SubmitEvent } from "react";
 import CountrySelect from "@/components/CountrySelect";
 import DynamicAddressForm from "@/components/DynamicForm";
-import PlacesAutocomplete, { type AddressData } from "@/components/PlacesAutocomplete";
-import { COUNTRIES } from "@/constants";
+import PlacesAutocomplete, {
+  type AddressData,
+} from "@/components/PlacesAutocomplete";
 import { validateFormAddress } from "@/utils/address";
 import type { CountryType } from "@/types/address";
 import addressRepo from "@/repository/address";
 import FormErrorMessage from "@/components/FormErrorMessage";
 import { isObjEmpty } from "@/utils/object";
 import "./AddressForm.css";
+import { COUNTRIES } from "@/constants";
 
 const AddressForm = () => {
+  // Because the countries data fetched from backend, we use temporary constant in the frontend while waiting the backend returns the data
   const [selectedCountry, setSelectedCountry] = useState<CountryType>(
     COUNTRIES[0].value as CountryType
   );
   const [autocompletePlace, setAutocompletePlace] = useState({});
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [errors, setErrors] = useState<string[]>([]);
+  const [manualSubmitLoading, setManualSubmitLoading] =
+    useState<boolean>(false);
+  const [autocompleteSubmitLoading, setAutocompleteSubmitLoading] =
+    useState<boolean>(false);
 
   const handleManualSubmit = async (e: SubmitEvent | MouseEvent) => {
+    setManualSubmitLoading(true);
     e.preventDefault();
     const form = e.currentTarget as HTMLFormElement;
 
@@ -27,19 +35,25 @@ const AddressForm = () => {
 
     if (errors.length > 0) {
       setErrors(errors);
+      setManualSubmitLoading(false);
       return;
     }
 
     const data = Object.fromEntries(formData);
 
     try {
-      await addressRepo.saveAddress(selectedCountry, data as { [key: string]: string });
+      await addressRepo.saveAddress(
+        selectedCountry,
+        data as { [key: string]: string }
+      );
       alert("Address is succesfully saved.");
       setOpenForm(false);
       setErrors([]);
     } catch (error) {
       console.error("Error occurred from server, error:", error);
       alert(`Failed to save address, Error: ${error}`);
+    } finally {
+      setManualSubmitLoading(false);
     }
   };
 
@@ -54,8 +68,10 @@ const AddressForm = () => {
   }, []);
 
   const handlePlaceAutocompleteSave = async () => {
+    setAutocompleteSubmitLoading(true);
     if (isObjEmpty(autocompletePlace)) {
       setErrors(["Please fill in the address"]);
+      setAutocompleteSubmitLoading(false);
       return;
     }
 
@@ -71,6 +87,8 @@ const AddressForm = () => {
     } catch (error) {
       console.error("Error occurred from server, error:", error);
       alert(`Failed to save address, Error: ${error}`);
+    } finally {
+      setAutocompleteSubmitLoading(false);
     }
   };
 
@@ -83,6 +101,8 @@ const AddressForm = () => {
     setOpenForm(false);
     setErrors([]);
   }, []);
+
+  console.log("DEBUG SELECTED COUNTRY", selectedCountry);
 
   return (
     <div className="form-page">
@@ -110,6 +130,7 @@ const AddressForm = () => {
                 Edit manually
               </button>
               <button
+                disabled={autocompleteSubmitLoading}
                 className="form-btn"
                 onClick={handlePlaceAutocompleteSave}
               >
@@ -121,12 +142,14 @@ const AddressForm = () => {
           <DynamicAddressForm
             key={selectedCountry}
             country={selectedCountry}
+            submitDisabled={manualSubmitLoading}
             onSubmit={handleManualSubmit}
             onClose={handleClose}
           />
         )}
-        {errors && errors.length > 0 ? 
-          <FormErrorMessage errors={errors} /> : null}
+        {errors && errors.length > 0 ? (
+          <FormErrorMessage errors={errors} />
+        ) : null}
       </div>
     </div>
   );

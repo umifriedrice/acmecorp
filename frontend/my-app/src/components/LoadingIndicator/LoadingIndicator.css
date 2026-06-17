@@ -1,0 +1,31 @@
+.loading-counter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-counter-spinner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  color: #6b6b80;
+  font-size: 0.82rem;
+}
+
+.loading-counter-spinner::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e6e6ef;
+  border-top-color: #5b5bd6;
+  border-radius: 50%;
+  animation: cs-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes cs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

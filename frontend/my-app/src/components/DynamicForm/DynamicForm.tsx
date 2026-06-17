@@ -5,6 +5,7 @@ import "./DynamicForm.css";
 
 const DynamicAddressForm = ({
   country,
+  submitDisabled,
   onSubmit,
   onClose
 }: DynamicAddressFromProps) => {
@@ -23,7 +24,7 @@ const DynamicAddressForm = ({
         />
       ))}
 
-      <button type="submit" className="submit-button">
+      <button disabled={submitDisabled} type="submit" className="submit-button">
         Save Address
       </button>
       <button className="submit-button submit-button--red" onClick={onClose}>
@@ -35,6 +36,7 @@ const DynamicAddressForm = ({
 
 interface DynamicAddressFromProps {
   country: "US" | "AUS" | "ID";
+  submitDisabled: boolean;
   onSubmit: (e: SubmitEvent) => void;
   onClose: () => void;
 }
